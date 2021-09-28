@@ -1,0 +1,57 @@
+<html>
+<head>
+    <style>
+        .card {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            height: 30%;
+            background: #957DAD;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            padding: 2px 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1> My Music Interest </h1>
+
+<button type="button" onclick="loadXMLDoc()"> See my Interest </button>
+<p id="demo"></p>
+
+<script>
+function loadXMLDoc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xmlhttp.open("GET", "data.xml", true);
+  xmlhttp.send();
+}
+function myFunction(xml) {
+  var x, i, xmlDoc, txt;
+  xmlDoc = xml.responseXML;
+  txt = " ";
+  x = xmlDoc.getElementsByTagName("TITLE");
+  var y = xmlDoc.getElementsByTagName("GROUP");
+  var z = xmlDoc.getElementsByTagName("MUSIC");
+  for (i = 0; i< x.length; i++) {
+    txt +=  <div class="card"> 
+            <div class="header"> <p> + x[i].childNodes[0].nodeValue + </p> </div>
+            <div class="container"> <p> <b>GROUP</b>+ y[i].childNodes[0].nodeValue + </p>
+            <p> <b>MUSIC</b> + z[i].childNodes[0].nodeValue  + </p>
+            </div> </div>
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+</body>
+</html>
