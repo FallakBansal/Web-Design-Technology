@@ -1,0 +1,38 @@
+.crousel{
+    margin-top: 20px;
+    padding: 2px;
+    /* background-color: white; */
+}
+.crousel-div{
+    max-width: 738px;
+    display: none;
+}
+
+.crousel-div img{
+    width: 738px;
+    height: 392px;
+}
+
+.image-caption{
+    position: relative;
+    color: white;
+    font-size: 15px;
+    padding: 20px 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: -48px;
+}
+
+
+.crousel-buttons{
+    color: white;
+    font-size: 20px;
+    position: relative;
+    top: -66px;
+    float: right;
+}
+.crousel-button{
+    background-color: rgba(80, 31, 74, 1);
+    padding: 15px;
+    cursor: pointer;
+}
+

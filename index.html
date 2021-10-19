@@ -1,57 +1,162 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <style>
-        .card {
-            width: 30%;
-            display: flex;
-            flex-direction: column;
-        }
-        .header {
-            height: 30%;
-            background: #957DAD;
-            color: white;
-            text-align: center;
-        }
-        .container {
-            padding: 2px 16px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="crousel.css">
+    
+    <title>NITJ</title>
 </head>
 <body>
+    <header>
+        <div class="header-section">
+            <div class="logo"><img src="logo.png" alt=""></div>
+            
+        </div>
 
-<h1> My Music Interest </h1>
+    </header>
 
-<button type="button" onclick="loadXMLDoc()"> See my Interest </button>
-<p id="demo"></p>
+    <div class="nav">
+    <ul class="nav-links">
+      <li class="nav-link" style="color: rgb(249, 224, 102); font-size: 24px;"><a href="">NITJ</a></li>
+      <li class="nav-link"><a href="">Home</a></li>
+      <li class="nav-link"><a href="">Administration </a></li>
+      <li class="nav-link"><a href="">Faculty</a></li>
+      <li class="nav-link"><a href="">Academics</a></li>
+      <li class="nav-link"><a href="">Department</a></li>
+      <li class="nav-link"><a href="">Facilities</a></li>
+      <li class="nav-link"><a href="">Research</a></li>
+  </ul>
+</div>
 
-<script>
-function loadXMLDoc() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      myFunction(this);
-    }
-  };
-  xmlhttp.open("GET", "https://github.com/FallakBansal/Web-Design-Technology/blob/main/data.xml", true);
-  xmlhttp.send();
-}
-function myFunction(xml) {
-  var x, i, xmlDoc, txt;
-  xmlDoc = xml.responseXML;
-  txt = " ";
-  x = xmlDoc.getElementsByTagName("TITLE");
-  var y = xmlDoc.getElementsByTagName("GROUP");
-  var z = xmlDoc.getElementsByTagName("MUSIC");
-  for (i = 0; i< x.length; i++) {
-    txt +=  <div class="card"> 
-            <div class="header"> <p> + x[i].childNodes[0].nodeValue + </p> </div>
-            <div class="container"> <p> <b>GROUP</b>+ y[i].childNodes[0].nodeValue + </p>
-            <p> <b>MUSIC</b> + z[i].childNodes[0].nodeValue  + </p>
-            </div> </div>
-  }
-  document.getElementById("demo").innerHTML = txt;
-}
-</script>
+    <div class="main">
+      <div class="left-portion">
+        <div class="crousel">
+          <div class="crousel-div" style="display: block;">
+            <img src="c1.png" alt="">
+            <span class="image-caption">Celebration</span>
+          </div>
 
+          <div class="crousel-div">
+            <img src="c2.png" alt="">
+            <span class="image-caption">Celebration</span>
+          </div>
+
+          <div class="crousel-div">
+            <img src="c3.jpg" alt="">
+            <span class="image-caption">Celebration</span>
+          </div>
+          <div class="crousel-buttons">
+            <span class="crousel-button" onclick="slideleft()">
+              <
+            </span>
+            <span class="crousel-button" onclick="slideright()">
+              >
+            </span>
+          </div>
+        </div>
+
+
+        <div class="vision">
+          <h1 class="vision-heading">Vision</h1>
+          <p class="vision-para">"To build a rich intellectual potential embedded with inter-disciplinary knowledge, human values and professional ethics among the youth, aspirant of becoming engineers and technologists, so that they contribute to society and create a niche for a successful career."</p>
+        </div>
+
+
+        <div class="upcoming-events">
+            <div class="events-headings">
+              <div class="event-heading active-heading" id = "up-events-header" onclick="changeContent('up-events')">Upcoming Events</div>
+              <div class="event-heading" id = "stu-corner-header" onclick="changeContent('stu-corner')">Student Corner</div>
+              <div class="event-heading" id = "tenders-header" onclick="changeContent('tenders')">Tenders</div>
+              <div class="event-heading" id = "scholar-header" onclick="changeContent('scholar')">Scholarship</div>
+            </div>
+            <ul id="up-events" class="headers" style="display: block;">
+              <li>Short Term Course on "Recent Trends & Challenges in Instrumentation and Control"</li>
+              <li>Online Short Term Course on "Modeling and Identification of Physiological Systems"</li>
+              <li>Online Short Term Course on "Advanced Techniques of Material Characterization for Research"</li>
+              <li>Two Weeks Short Term Course on "Machine Learning and Deep Learning for Research"</li>
+              <li>Online Short Term Training Program on "Procurement Under GFR" (GEM & CPPP)</li>
+            </ul>
+            <ul id="stu-corner" class="headers">
+              <li>Institute's 6 Months Internship Policy (Revised)</li>
+              <li>Revised Course Structure for B.Tech 8th Semester Students (Batch 2018-2022)</li>
+              <li>Regarding Continuation Fees payment for M.Tech (Batch-2019) Students </li>
+              <li>Notice regarding Collection of Degree Certificate</li>
+              <li>Fee Structure for Scholarship purpose for UG & PG Courses (Session 2021-22) </li>
+            </ul>
+
+            <ul id="tenders" class="headers">
+              <li>e-Tender Notice No. NITJ/PUR/e-Attendance/76/2021 for Purchase of Touchless Attendance Management System for the staff and visitor of the Institute</li>
+              <li>e-tender no. 75/2021 for Purchase of Thermal Analyzer-TGA/DTA/DTG (Under HEFA) required for Research & Development / PG Lab of IIC of the Institute </li>
+              <li>CORRIGENDUM - e-Tender Notice No. NITJ/PUR/Cy/74/20/ e-tender no. 58/2021 for Purchase of Dynamic Scanning Calorimeter (DSC) </li>
+              <li>e-Tender Notice No. NIT JALANDHAR/Store/69/2021 for repair of Transformer 500 KVA make Kirloskar installed in IT Park Building of the Institute </li>
+            </ul>
+
+            <ul id="scholar" class="headers">
+              <li>Fee Structure for UG & PG Courses (Session 2021-22)</li>
+              <li>Instructions and List of Documents required for Scholarship </li>
+              <li>Notice regarding Bihar State Post Matric Scholarship</li>
+              <li>Affidavit regarding Scholarship / Financial Assistance</li>
+              <li>Sh. Dorilal Agrawal Meritorious Scholarship-2021 for the Physically Challenged Students</li>
+              
+            </ul>
+        </div>
+
+
+        <div class="recruitments">
+  
+        </div>
+        <div class="two-cards">
+          <div class="downloads">
+  
+          </div>
+          <div class="other-links">
+            
+          </div>
+        </div>
+      </div>
+      <div class="right-portion">
+          <div class="news">
+            <h2 class="news-heading">NEWS</h2>
+            <hr>
+            <marquee behavior="scroll" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
+            <div class="single-news">
+              Spot Round Admission for M.Tech (Self-Sponsored) programme
+            </div>
+
+            <div class="single-news">
+              Congratulations to Ms. Sadaf Choudhary, NITJ Alumnus for securing AIR 23 in UPSC Civil Services Examination
+            </div>
+
+            <div class="single-news">
+              Advertisement for the Post of Research/Project Associate/Assistant under SMDP-C2SD Project
+            </div>
+
+          </marquee>
+            <div class="admissions">
+              <strong>  Admissions (2021-2022)</strong>
+            </div>
+
+          </div>
+          
+          <div class="contact-us">
+            <h2 class="news-heading">CONTACT US</h2>
+            <hr>
+            <p>Dr B R Ambedkar
+              National Institute of Technology
+              G.T. Road, Amritsar Bypass,
+              Jalandhar (Punjab), India - 144011
+              Tel : +91-0181-5037855, 2690301, 2690453, 3082000</p>
+          </div>
+      </div>
+    </div>
+
+<footer>
+  © Copyright 2016-2021, All Rights Reserved NIT Jalandhar
+</footer>
+    <script src="script.js"></script>
+
+     
 </body>
 </html>
